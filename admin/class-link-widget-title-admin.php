@@ -101,10 +101,14 @@ class Link_Widget_Title_Admin {
 	}
 
 	/**
-   * Add Title Link field to widget form
-   *
-   * @uses add_action() 'in_widget_form'
-   */
+	 * Add Title Link field to widget form
+	 *
+	 * @uses add_action() 'in_widget_form'
+	 *
+	 * @param $widget
+	 * @param $args
+	 * @param $instance
+	 */
   public function add_title_link_fields_to_widget_form( $widget, $args, $instance ) {
   ?>
     <fieldset class="title-link-options">
@@ -124,11 +128,16 @@ class Link_Widget_Title_Admin {
   <?php
   }
 
-  /**
-   * Register the additional widget field
-   *
-   * @uses add_filter() 'widget_form_callback'
-   */
+	/**
+	 * Register the additional widget field
+	 *
+	 * @uses add_filter() 'widget_form_callback'
+	 *
+	 * @param $instance
+	 * @param $widget
+	 *
+	 * @return mixed
+	 */
   public function register_widget_title_link_field ( $instance, $widget ) {
     if ( !isset($instance['title_link']) )
       $instance['title_link'] = null;
@@ -139,11 +148,16 @@ class Link_Widget_Title_Admin {
     return $instance;
   }
 
-  /**
-   * Add the additional field to widget update callback
-   *
-   * @uses add_filter() 'widget_update_callback'
-   */
+	/**
+	 * Add the additional field to widget update callback
+	 *
+	 * @uses add_filter() 'widget_update_callback'
+	 *
+	 * @param $instance
+	 * @param $new_instance
+	 *
+	 * @return mixed
+	 */
   public function widget_update_extend ( $instance, $new_instance ) {
     $instance['title_link'] = esc_url( $new_instance['title_link'] );
     $instance['title_link_target_blank'] = !empty($new_instance['title_link_target_blank']) ? 1 : 0;
