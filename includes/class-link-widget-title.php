@@ -35,7 +35,7 @@ class Link_Widget_Title {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Link_Widget_Title_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Link_Widget_Title_Loader $loader Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -44,7 +44,7 @@ class Link_Widget_Title {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+	 * @var      string $plugin_name The string used to uniquely identify this plugin.
 	 */
 	protected $plugin_name;
 
@@ -53,7 +53,7 @@ class Link_Widget_Title {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $version    The current version of the plugin.
+	 * @var      string $version The current version of the plugin.
 	 */
 	protected $version;
 
@@ -156,48 +156,11 @@ class Link_Widget_Title {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
 		$this->loader->add_action( 'in_widget_form', $plugin_admin, 'add_title_link_fields_to_widget_form', 1, 3 );
-		$this->loader->add_filter( 'widget_update_callback', $plugin_admin, 'widget_update_extend', 10, 3 );
 		$this->loader->add_filter( 'widget_form_callback', $plugin_admin, 'register_widget_title_link_field', 10, 2 );
-
-
-   
-
-
-	}
-
-	/**
-	 * Register all of the hooks related to the public-facing functionality
-	 * of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 */
-	private function define_public_hooks() {
-
-		$plugin_public = new Link_Widget_Title_Public( $this->get_plugin_name(), $this->get_version() );
-
-		
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-		$this->loader->add_filter( 'widget_title', $plugin_public, 'add_link_to_widget_title' );
-
-
-
-		
-		
-
-   
-
-	}
-
-	/**
-	 * Run the loader to execute all of the hooks with WordPress.
-	 *
-	 * @since    1.0.0
-	 */
-	public function run() {
-		$this->loader->run();
+		$this->loader->add_filter( 'widget_update_callback', $plugin_admin, 'widget_update_extend', 10, 2 );
+		$this->loader->add_filter( 'dynamic_sidebar_params', $plugin_admin, 'add_link_to_widget_title', 99, 2 );
 	}
 
 	/**
@@ -212,16 +175,6 @@ class Link_Widget_Title {
 	}
 
 	/**
-	 * The reference to the class that orchestrates the hooks with the plugin.
-	 *
-	 * @since     1.0.0
-	 * @return    Link_Widget_Title_Loader    Orchestrates the hooks of the plugin.
-	 */
-	public function get_loader() {
-		return $this->loader;
-	}
-
-	/**
 	 * Retrieve the version number of the plugin.
 	 *
 	 * @since     1.0.0
@@ -229,6 +182,41 @@ class Link_Widget_Title {
 	 */
 	public function get_version() {
 		return $this->version;
+	}
+
+	/**
+	 * Register all of the hooks related to the public-facing functionality
+	 * of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function define_public_hooks() {
+
+		$plugin_public = new Link_Widget_Title_Public( $this->get_plugin_name(), $this->get_version() );
+
+
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+	}
+
+	/**
+	 * Run the loader to execute all of the hooks with WordPress.
+	 *
+	 * @since    1.0.0
+	 */
+	public function run() {
+		$this->loader->run();
+	}
+
+	/**
+	 * The reference to the class that orchestrates the hooks with the plugin.
+	 *
+	 * @since     1.0.0
+	 * @return    Link_Widget_Title_Loader    Orchestrates the hooks of the plugin.
+	 */
+	public function get_loader() {
+		return $this->loader;
 	}
 
 }

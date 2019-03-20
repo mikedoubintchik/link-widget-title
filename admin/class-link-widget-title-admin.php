@@ -103,7 +103,6 @@ class Link_Widget_Title_Admin {
 	/**
    * Add Title Link field to widget form
    *
-   * @since 1.0
    * @uses add_action() 'in_widget_form'
    */
   public function add_title_link_fields_to_widget_form( $widget, $args, $instance ) {
@@ -128,7 +127,6 @@ class Link_Widget_Title_Admin {
   /**
    * Register the additional widget field
    *
-   * @since 1.0
    * @uses add_filter() 'widget_form_callback'
    */
   public function register_widget_title_link_field ( $instance, $widget ) {
@@ -144,7 +142,6 @@ class Link_Widget_Title_Admin {
   /**
    * Add the additional field to widget update callback
    *
-   * @since 1.0
    * @uses add_filter() 'widget_update_callback'
    */
   public function widget_update_extend ( $instance, $new_instance ) {
@@ -154,15 +151,15 @@ class Link_Widget_Title_Admin {
     return $instance;
   }
 
-  /**
-   * Add link to widget title on output
-   *
-   * Title link should be set by editors 
-   * in widget settings in Appearance->Widgets
-   *
-   * @since 1.o
-   * @uses add_filter() 'dynamic_sidebar_params'
-   */
+	/**
+	 * Add link to widget title on output
+	 *
+	 * @uses add_filter() 'dynamic_sidebar_params'
+	 *
+	 * @param $params
+	 *
+	 * @return mixed
+	 */
   public function add_link_to_widget_title( $params ) {
     if (is_admin())
       return $params;
