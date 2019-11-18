@@ -6,13 +6,12 @@ This plugin adds an extra field to all widgets that allows you add a link to the
 
 ## Features
 
- * Adds an extra field inside widgets to allow a link for the title
+* Adds an extra field inside widgets to allow a link for the title
 
 ## Useful Links
 
 * [Demo Site](https://link-widget-title.allureprojects.com/)
-* [Contact us for feedback and bug reports](https://allurewebsolutions.com/contact) 
-
+* [Contact us for feedback and bug reports](https://allurewebsolutions.com/contact)
 
 ## Installation
 
@@ -20,4 +19,5 @@ This plugin adds an extra field to all widgets that allows you add a link to the
 2. Activate the plugin through the "Plugins" menu in WordPress
 
 ## Changelog
+
 * 1.0: Initial release
