@@ -2,7 +2,7 @@
 Contributors: allurewebsolutions
 Donate link: https://allurewebsolutions.com
 Tags: widgets
-Tested up to: 6.0
+Tested up to: 6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,9 +22,8 @@ This plugin adds an extra field to all widgets that allows you add a link to the
 1. This plugin adds an extra input field for every widget
 
 == Changelog ==
-
-= 1.0 =
-* Initial Release
+1.0.2: Added WordPress 6.1 Support
+1.0: Initial Release
 
 == Upgrade Notice ==
 

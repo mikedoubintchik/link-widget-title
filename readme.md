@@ -20,4 +20,5 @@ This plugin adds an extra field to all widgets that allows you add a link to the
 
 ## Changelog
 
-* 1.0: Initial release
+1.0.2: Added WordPress 6.1 Support
+1.0: Initial release

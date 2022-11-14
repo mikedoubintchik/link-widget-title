@@ -16,7 +16,7 @@
  * Plugin Name:       Link Widget Title
  * Plugin URI:        https://allurewebsolutions.com
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Allure Web Solutions
  * Author URI:        https://allurewebsolutions.com
  * License:           GPL-2.0+
